@@ -24,21 +24,21 @@ df['Platform_grouped'] = np.NaN
 
 for i, value in enumerate(df['Platform']):
     if (value in playstation):
-        df.loc[i, 'Platform_grouped'] = 'playstation'
+        df.loc[i, 'Platform_grouped'] = 'PlayStation'
     elif (value in xbox):
-        df.loc[i, 'Platform_grouped'] = 'xbox'
+        df.loc[i, 'Platform_grouped'] = 'Xbox'
     elif (value in nintendo_console):
-        df.loc[i, 'Platform_grouped'] = 'nintendo_console'
+        df.loc[i, 'Platform_grouped'] = 'Nintendo(console)'
     elif (value in nintendo_handheld):
-        df.loc[i, 'Platform_grouped'] = 'nintendo_handheld'
+        df.loc[i, 'Platform_grouped'] = 'Nintendo(handheld)'
     elif (value == 'PC'):
-        df.loc[i, 'Platform_grouped'] = 'personal_computer'
+        df.loc[i, 'Platform_grouped'] = 'Computer'
     elif (value in sega):
-        df.loc[i, 'Platform_grouped'] = 'sega'
+        df.loc[i, 'Platform_grouped'] = 'Sega'
     elif (value in atari):
-        df.loc[i, 'Platform_grouped'] = 'atari'
+        df.loc[i, 'Platform_grouped'] = 'Atari'
     elif (value in other):
-        df.loc[i, 'Platform_grouped'] = 'other'
+        df.loc[i, 'Platform_grouped'] = 'Other'
     else:
         pass
 
@@ -65,7 +65,8 @@ df['Publisher_grouped'] = np.NaN
 
 for i, value in enumerate(df['Publisher']):
     if (value in keep):
-        df.loc[i, 'Publisher_grouped'] = value
+        df.loc[i, 'Publisher_grouped'] = value.replace(' ', '\n').splitlines()[0]
+
     else:
         df.loc[i, 'Publisher_grouped'] = 'other'
 
