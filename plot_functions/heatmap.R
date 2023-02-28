@@ -25,3 +25,17 @@ heatmap = df %>%
   ylab('Platform') +
   ggthemes::theme_few()
   
+  
+#in plotly
+# counts = df %>% 
+#   dplyr::filter(Publisher_grouped != 'other') %>%
+#   droplevels(.) %>% 
+#   count(Genre, Publisher_grouped)
+
+heatmap2 = plot_ly(
+  x = counts$Genre,
+  y = counts$Publisher_grouped,
+  z = counts$n,
+  type = 'heatmap',
+  colors = colorRamp(c("white", "darkgreen"))
+)

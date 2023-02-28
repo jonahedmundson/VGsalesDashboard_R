@@ -7,7 +7,7 @@
 
 sales_hist = df %>%
   ggplot(aes(x=Global_Sales)) + 
-  geom_histogram(fill='#006400') + 
+  geom_histogram(fill='#006400', binwidth = 1) + 
   ggthemes::theme_few() + 
   xlab('Global Sales (millions)') + 
   ylab('Log of Count') + 
