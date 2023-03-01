@@ -68,7 +68,7 @@ for i, value in enumerate(df['Publisher']):
         df.loc[i, 'Publisher_grouped'] = value.replace(' ', '\n').splitlines()[0]
 
     else:
-        df.loc[i, 'Publisher_grouped'] = 'other'
+        df.loc[i, 'Publisher_grouped'] = 'Other'
 
 
 print('\n\n')

@@ -17,10 +17,7 @@ df[, 'Name_short'] = substr(df[, "Name"], 1, 24)
 #pie chart
 #
 #heatmap
-counts = df %>% 
-  dplyr::filter(Publisher_grouped != 'other') %>%
-  droplevels(.) %>% 
-  count(Genre, Publisher_grouped)
+#
 #sales_hist
 #   none
 #sales_time
@@ -52,12 +49,6 @@ eu = c('Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus',
        'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 
        'Slovakia', 'Slovenia', 'Spain', 'Sweden')
 
-#adding names
-codes$names = NA
-codes[codes[,'COUNTRY'] %in% na,'names'] = 'North America'
-codes[codes[,'COUNTRY'] %in% eu,'names'] = 'European Union'
-codes[codes[,'COUNTRY'] == 'Japan','names'] = 'Japan'
-codes[is.na(codes[,'names']),'names'] = 'Other'
 
 
 
@@ -140,8 +131,9 @@ app %>% set_layout(
         #     dbcRow(children=list(
         #       dbcCol(
         #         dccGraph(
-        #           figure = heatmap2#,
-        #           #style = list("height" = '70vh', width='65vw')
+        #           #figure = heatmap2,
+        #           id='heatmap-figure',
+        #           style = list("height" = '70vh', width='65vw')
         #           #)
         #         )#,
         #         #md = 8
@@ -152,8 +144,8 @@ app %>% set_layout(
         #         id='hm-dropdown1',
         #         options=list(
         #           list(label = "Genre", value = "Genre"),
-        #           list(label = "Publisher", value = "Publisher"),
-        #           list(label = "Platform", value = "Platform")
+        #           list(label = "Publisher", value = "Publisher_grouped"),
+        #           list(label = "Platform", value = "Platform_grouped")
         #         ),
         #         value="Genre"
         #         ),
@@ -161,10 +153,10 @@ app %>% set_layout(
         #           id='hm-dropdown2',
         #           options=list(
         #             list(label = "Genre", value = "Genre"),
-        #             list(label = "Publisher", value = "Publisher"),
-        #             list(label = "Platform", value = "Platform")
+        #             list(label = "Publisher", value = "Publisher_grouped"),
+        #             list(label = "Platform", value = "Platform_grouped")
         #           ),
-        #           value="Platform"
+        #           value="Platform_grouped"
         #         )
         #         )#,
         #         #md = 4
@@ -244,7 +236,7 @@ app %>% set_layout(
                   list(label = "Sony", value = "Sony"),
                   list(label = "THQ", value = "THQ"),
                   list(label = "Ubisoft", value = "Ubisoft"),
-                  list(label = "Other", value = "other")
+                  list(label = "Other", value = "Other")
                 ),
                 value="All"
               ),
@@ -372,6 +364,25 @@ app %>% add_callback(
     list(sales_time(CI_temp), map(codes))
   }
 )
+
+# app %>% add_callback(
+#   output(id = 'heatmap-figure', property = 'figure'),
+#   list(
+#     input(id = 'hm-dropdown1', property = 'value'),
+#     input(id = 'hm-dropdown2', property = 'value')
+#   ),
+#   function(drop1, drop2){
+#     counts = df %>%
+#       dplyr::filter(Publisher_grouped != 'other') %>%
+#       droplevels(.) %>%
+#       count(get(drop1), get(drop2))
+#     names(counts) <- c("drop1", "drop2", "n")
+#     heatmap2(counts, drop1, drop2)
+#     #df$Platform_grouped = factor(df$Platform_grouped, levels = c("Other", "Xbox", "Sega", "PlayStation", "Nintendo(handheld)",
+#     #                                                             "Nintendo(console)", "Computer", "Atari"))
+#     #heatmap(df, drop1, drop2)
+#   }
+# )
 
 app %>% add_callback(
   output(id = 'topgames-figure', property = 'figure'),
