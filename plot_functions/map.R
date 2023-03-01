@@ -31,21 +31,24 @@
 
 
 #making map
-library(plotly)
-map = plot_geo(codes) %>% 
+#library(plotly)
+map = function(filtered_codes){
+  figure = plot_geo(filtered_codes) %>% 
   add_trace(
-  z = ~sales, color = ~sales, colors = 'Greens',
-  text = ~names, locations = ~CODE, marker = list(line = list(color = toRGB("grey"), width = 0.5))
-) %>% 
-  colorbar(title = 'Sales', tickprefix = '$') %>% 
-  layout(
-  title = '',
-  geo = list(
-    showframe = FALSE,
-    showcoastlines = FALSE,
-    projection = list(type = 'Mercator')
+    z = ~sales, color = ~sales, colors = 'Greens',
+    text = ~names, locations = ~CODE, marker = list(line = list(color = toRGB("grey"), width = 0.5))
+  ) %>% 
+    colorbar(title = 'Sales', tickprefix = '$') %>% 
+    layout(
+    title = '',
+    geo = list(
+      showframe = FALSE,
+      showcoastlines = FALSE,
+      projection = list(type = 'Mercator')
+    )
   )
-)
+  figure
+}
 
 
 #map

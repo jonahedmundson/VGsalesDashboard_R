@@ -24,11 +24,14 @@
 
 
 #library(plotly)
-piechart <- plot_ly(bars, 
-                    labels = ~category, 
-                    values = ~counts, 
-                    type = 'pie') %>% layout(title = '',
-                      
-                      xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
-                      
-                      yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+piechart <- function(piedata){
+  figure = plot_ly(piedata, 
+    labels = ~category, 
+    values = ~counts, 
+    type = 'pie') %>% 
+  layout(title = '',
+    xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+    yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE)
+  )
+  figure
+}

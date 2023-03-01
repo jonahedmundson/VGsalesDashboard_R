@@ -5,12 +5,19 @@
 # 
 # location = 'Global_Sales'
 
-sales_hist = df %>%
-  ggplot(aes(x=Global_Sales)) + 
+sales_hist = function(df, log, sales_type){
+  figure = df %>%
+  ggplot(aes(x=get(sales_type))) + 
   geom_histogram(fill='#006400', binwidth = 1) + 
   ggthemes::theme_few() + 
-  xlab('Global Sales (millions)') + 
-  ylab('Log of Count') + 
-  scale_x_continuous(labels = scales::label_dollar(), limits = c(0, median(df[,'Global_Sales'])+20*sd(df[,'Global_Sales']))) + 
-  scale_y_log10() 
+  xlab(paste(sales_type, '(millions)')) + 
+  ylab(paste(log, 'Count')) + 
+  scale_x_continuous(labels = scales::label_dollar(), limits = c(0, median(df[,sales_type])+20*sd(df[,sales_type]))) 
+  
+  if (length(log) != 0){
+    ggplotly((figure + scale_y_log10())) 
+  } else {
+    ggplotly(figure)
+  }
+}
 

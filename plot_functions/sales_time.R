@@ -18,7 +18,8 @@
 #   )
 
 
-sales_time = CI %>%
+sales_time = function(CI_temp){
+  figure = CI_temp %>%
   ggplot(aes(x=Year, y=sum)) +
   geom_line(colour='#006400', lwd=1.1) +
   geom_point(colour='#006400') +
@@ -26,3 +27,5 @@ sales_time = CI %>%
   ggthemes::theme_clean() +
   ylab('Sum of Sales (millions)') + 
   scale_y_continuous(labels = scales::label_dollar())
+  ggplotly(figure)
+}
