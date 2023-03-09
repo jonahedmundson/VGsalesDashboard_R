@@ -436,4 +436,4 @@ app %>% add_callback(
 
 
 # Run the app
-app %>% run_app()
+app %>% run_app(host = '0.0.0.0')
