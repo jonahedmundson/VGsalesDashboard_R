@@ -24,7 +24,7 @@
 # #adding names
 # codes$names = NA
 # codes[codes[,'COUNTRY'] %in% na,'names'] = 'North America'
-# codes[codes[,'COUNTRY'] %in% eu,'names'] = 'Europena Union'
+# codes[codes[,'COUNTRY'] %in% eu,'names'] = 'European Union'
 # codes[codes[,'COUNTRY'] == 'Japan','names'] = 'Japan'
 # codes[is.na(codes[,'names']),'names'] = 'Other'
 

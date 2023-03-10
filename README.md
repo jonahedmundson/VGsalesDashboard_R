@@ -1,6 +1,9 @@
 # VGsalesDashboard
 A dashboard for video game sales using Dash.
 
+You can find the deployed app [here](https://vg-sales-r.herokuapp.com/).
+
+
 
 ## Data Source
 
@@ -47,8 +50,8 @@ The last/fourth page will have both a histogram (left-hand side) and a pie chart
 
 ## Other Files
 
-You can find our `Code of Conduct` [here](./project_guidelines/CODE_OF_CONDUCT.md).
+You can find our `Code of Conduct` [here](./doc/project_guidelines/CODE_OF_CONDUCT.md).
 
-You can find our `Team Contract` [here](./project_guidelines/team-contract.md).
+You can find our `Team Contract` [here](./doc/project_guidelines/team-contract.md).
 
-You can find our `Contributions` document [here](./project_guidelines/CONTRIBUTING.md).
+You can find our `Contributions` document [here](./doc/project_guidelines/CONTRIBUTING.md).
