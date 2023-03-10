@@ -4,6 +4,10 @@ A dashboard for video game sales using Dash.
 You can find the deployed app [here](https://vg-sales-r.herokuapp.com/).
 
 
+![deployed dashboard](./app_sketch/dashboard_live.png)
+
+
+
 
 ## Data Source
 
