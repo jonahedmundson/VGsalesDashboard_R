@@ -1,5 +1,5 @@
 # VGsalesDashboard
-A dashboard for video game sales using Dash.
+A dashboard for video game sales using Dash: https://vg-sales-r.herokuapp.com/.
 
 
 ## Data Source
