@@ -3,7 +3,7 @@ A dashboard for video game sales using Dash.
 
 You can find the deployed app [here](https://vg-sales-r.herokuapp.com/).
 
-(If the above link is broken, this is because the dashboard was accruing charges, so I took it down. I have included some images below. Additionally, you can run a local live version of the dashboard by pasting `Rscript dashboard.R` into your terminal.)
+(If the above link is broken, this is because the dashboard was accruing charges, so I took it down. I have included some images below. Additionally, you can run a local live version of the dashboard by pasting `Rscript dashboard.R` into your terminal. You can also watch a video of me using the dashboard [here](https://www.youtube.com/watch?v=Xjt4mht_LyI).)
 
 You can find the Python version of this same dashboard [here](https://github.com/a-foote/VGsalesDashboard).
 
